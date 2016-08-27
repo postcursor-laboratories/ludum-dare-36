@@ -111,10 +111,10 @@ def url_or_file_content(path):
         res = requests.get(path)
         res.raise_for_status()
         return res.content
-    filepath = Path(filepath).absolute()
-    if not filepath.exists():
-        raise ValueError("File doesn't exist: " + str(filepath))
-    return filepath.read_bytes()
+    path = Path(path).absolute()
+    if not path.exists():
+        raise ValueError("File doesn't exist: " + str(path))
+    return path.read_bytes()
 
 @command(
     name='add',
