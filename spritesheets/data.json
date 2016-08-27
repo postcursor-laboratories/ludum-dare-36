@@ -59,19 +59,19 @@
                 "type": "newline"
             },
             {
-                "name": "brackgroundrough0",
+                "name": "backgroundrough0",
                 "type": "normal"
             },
             {
-                "name": "brackgroundrough1",
+                "name": "backgroundrough1",
                 "type": "normal"
             },
             {
-                "name": "brackgroundbrick0",
+                "name": "backgroundbrick0",
                 "type": "normal"
             },
             {
-                "name": "brackgroundbrick1",
+                "name": "backgroundbrick1",
                 "type": "normal"
             },
             {
@@ -101,11 +101,11 @@
                 "type": "normal"
             },
             {
-                "name": "backgroundroughtorch0-0",
+                "name": "backgroundroughtorch0-1",
                 "type": "normal"
             },
             {
-                "name": "backgroundroughtorch0-0",
+                "name": "backgroundroughtorch0-2",
                 "type": "normal"
             }
         ]
