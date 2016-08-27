@@ -1,0 +1,90 @@
+// Entry point: initialize babel-polyfill
+import "babel-polyfill";
+import {GameConfigurable} from "./game-helpers";
+import {Game} from "./game";
+import Phaser from "phaser";
+import {globals} from "./globals";
+import {HUD} from "./hud";
+
+class MainGame extends Game {
+
+    constructor() {
+        super(960, 640);
+        this.currentLevel = null;
+        this.player = null;
+        this.triggered = false;
+    }
+
+    preGameInit() {
+        this.levels = [];
+    }
+
+    getImages() {
+        return [];
+    }
+
+    getPreLoadConfigurables() {
+        return [].concat(this.levels.map(l => GameConfigurable.of(game => l.preloadConfigure(game))));
+    }
+
+    getConfigurables() {
+        return [
+            GameConfigurable.of(game => this.configure(game))
+        ].concat(this.levels.map(l => GameConfigurable.of(game => l.loadConfigure(game))))
+            .concat(GameConfigurable.of(game => this.enterLevel(this.levels[0])));
+    }
+
+    configure(game) {
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+        globals.platformGroup = game.add.group();
+        globals.enemyGroup = game.add.group();
+        globals.player = game.add.group();
+        globals.bulletsGroup = game.add.group();
+        game.physics.arcade.gravity.y = 300;
+        game.stage.smoothed = false;
+        game.stage.backgroundColor = 0xFFFFFF;
+
+        return [
+            this.hud = new HUD()
+        ];
+    }
+
+    enterLevel(level) {
+        if (this.currentLevel) {
+            this.currentLevel.exitLevel(this.phaserGame);
+        }
+        this.currentLevel = level;
+        this.currentLevel.enterLevel(this.phaserGame);
+    }
+
+    nextLevel() {
+        // Hmm. Could be better. Not today.
+        const current = this.levels.indexOf(this.currentLevel);
+        if (current >= 0) {
+            if (this.levels.length == current + 1) {
+                // ah!
+                if (!this.triggered) {
+                    alert("You win!");
+                }
+                this.triggered = true;
+                return;
+            }
+            const nextLevel = this.levels[current + 1];
+            this.enterLevel(nextLevel);
+        }
+    }
+
+    update() {
+        if (this.currentLevel) {
+            this.currentLevel.tickLevel(this.phaserGame);
+        }
+        return super.update();
+    }
+
+    render() {
+        return super.render();
+    }
+}
+window.onload = () => {
+    new MainGame();
+};
