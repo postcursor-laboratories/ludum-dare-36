@@ -1,10 +1,113 @@
 {
-    "tiles": {
+    "sprites": {
         "spriteList": [
             {
-                "name": "sand",
+                "name": "sand0",
                 "type": "normal"
-            }
+            },
+            {
+                "name": "sand1",
+                "type": "normal"
+            },
+            {
+                "name": "sand2",
+                "type": "normal"
+            },
+            {
+                "name": "sand3",
+                "type": "normal"
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "name": "brick0",
+                "type": "normal"
+            },
+            {
+                "name": "brick1",
+                "type": "normal"
+            },
+            {
+                "name": "brickcolumn0",
+                "type": "normal"
+            },
+            {
+                "name": "brickcolumn1",
+                "type": "normal"
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "name": "damagedbrick0",
+                "type": "normal"
+            },
+            {
+                "name": "damagedbrick1",
+                "type": "normal"
+            },
+            {
+                "name": "damagedbrickcolumn0",
+                "type": "normal"
+            },
+            {
+                "name": "damagedbrickcolumn1",
+                "type": "normal"
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "name": "brackgroundrough0",
+                "type": "normal"
+            },
+            {
+                "name": "brackgroundrough1",
+                "type": "normal"
+            },
+            {
+                "name": "brackgroundbrick0",
+                "type": "normal"
+            },
+            {
+                "name": "brackgroundbrick1",
+                "type": "normal"
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "name": "backgroundhierogliph0",
+                "type": "normal"
+            },
+            {
+                "name": "backgroundhierogliph1",
+                "type": "normal"
+            },
+            {
+                "name": "backgroundhierogliph2",
+                "type": "normal"
+            },
+            {
+                "name": "backgroundhierogliph3",
+                "type": "normal"
+            },
+            {
+                "type": "newline"
+            },
+            {
+                "name": "backgroundroughtorch0-0",
+                "type": "normal"
+            },
+            {
+                "name": "backgroundroughtorch0-0",
+                "type": "normal"
+            },
+            {
+                "name": "backgroundroughtorch0-0",
+                "type": "normal"
+            },
         ]
     }
 }
