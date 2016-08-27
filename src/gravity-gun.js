@@ -24,6 +24,7 @@ export class GravityGun {
     grab(entity) {
         if (!entity.isPhysgunEnabled) {
             console.warn("tried to grab entity without physgun enabled!");
+            return;
         }
         this.grabbedEntity = entity;
         this.grabbedEntity.grabbed = true;
@@ -33,6 +34,7 @@ export class GravityGun {
     moveGrabbedTo(x, y) {
         if (this.grabbedEntity === null) {
             console.warn("tried to move null entity");
+            return;
         }
         var controllerPos = new Phaser.Point(this.controller.sprite.position.x, this.controller.sprite.position.y);
         var targetPos = new Phaser.Point(x, y);
