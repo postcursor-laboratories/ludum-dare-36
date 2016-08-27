@@ -31,6 +31,7 @@ class MainGame extends Game {
     getPreLoadConfigurables() {
         return [
             GameConfigurable.of(game => game.load.spritesheet("player", "sprites/player.png", 32, 32)),
+            GameConfigurable.of(game => game.load.spritesheet("jackal", "sprites/jackal.png", 32, 32)),
             GameConfigurable.of(game => game.load.spritesheet("rock", "sprites/physicsobj/rock.png", 32, 32))
         ].concat(this.levels.map(l => GameConfigurable.of(game => l.preloadConfigure(game))));
     }

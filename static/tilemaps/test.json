@@ -1,7 +1,7 @@
 { "height":10,
  "layers":[
         {
-         "data":[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+         "data":[10, 10, 10, 9, 10, 9, 10, 9, 9, 10, 12, 19, 17, 17, 19, 20, 19, 17, 18, 7, 11, 17, 17, 17, 19, 17, 19, 20, 18, 8, 12, 13, 13, 22, 23, 21, 14, 13, 13, 7, 11, 0, 0, 0, 0, 0, 0, 15, 16, 7, 12, 0, 0, 0, 0, 0, 0, 15, 15, 8, 12, 0, 0, 0, 0, 0, 0, 16, 16, 7, 11, 0, 0, 0, 0, 6, 0, 15, 16, 8, 12, 0, 0, 0, 5, 6, 0, 15, 15, 8, 12, 2, 1, 1, 2, 2, 3, 3, 3, 7],
          "height":10,
          "name":"ground",
          "opacity":1,
@@ -12,7 +12,6 @@
          "y":0
         }, 
         {
-         "color":"#00ff00",
          "draworder":"topdown",
          "height":0,
          "name":"metadata",
@@ -21,33 +20,16 @@
                  "height":48,
                  "id":1,
                  "name":"",
+                 "properties":
+                    {
+
+                    },
                  "rotation":0,
                  "type":"player",
                  "visible":true,
                  "width":16,
-                 "x":64.25,
+                 "x":32,
                  "y":96
-                }, 
-                {
-                 "height":16,
-                 "id":6,
-                 "name":"",
-                 "properties":
-                    {
-                     "image":"rock",
-                     "subtype":"basic"
-                    },
-                 "propertytypes":
-                    {
-                     "image":"string",
-                     "subtype":"string"
-                    },
-                 "rotation":0,
-                 "type":"physicsobj",
-                 "visible":true,
-                 "width":16,
-                 "x":112.5,
-                 "y":112.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -56,19 +38,26 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":7,
+ "nextobjectid":4,
  "orientation":"orthogonal",
+ "properties":
+    {
+
+    },
  "renderorder":"left-down",
  "tileheight":16,
  "tilesets":[
         {
-         "columns":4,
          "firstgid":1,
          "image":"..\/..\/bin\/sprites\/tiles.png",
          "imageheight":96,
          "imagewidth":64,
          "margin":0,
          "name":"tiles",
+         "properties":
+            {
+
+            },
          "spacing":0,
          "tilecount":24,
          "tileheight":16,
@@ -76,14 +65,7 @@
             {
              "0":
                 {
-                 "collide":true
-                }
-            },
-         "tilepropertytypes":
-            {
-             "0":
-                {
-                 "collide":"bool"
+                 "collide":"true"
                 }
             },
          "tilewidth":16

@@ -1,34 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="10" height="10" tilewidth="16" tileheight="16" nextobjectid="7">
- <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="24" columns="4">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="10" height="10" tilewidth="16" tileheight="16" nextobjectid="4">
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="24">
   <image source="../../bin/sprites/tiles.png" width="64" height="96"/>
   <tile id="0">
    <properties>
-    <property name="collide" type="bool" value="true"/>
+    <property name="collide" value="true"/>
    </properties>
   </tile>
  </tileset>
  <layer name="ground" width="10" height="10">
   <data encoding="csv">
-1,1,1,1,1,1,1,1,1,1,
-1,0,0,0,0,0,0,0,0,1,
-1,0,0,0,0,0,0,0,0,1,
-1,0,0,0,0,0,0,0,0,1,
-1,0,0,0,0,0,0,0,0,1,
-1,0,0,0,0,0,0,0,0,1,
-1,0,0,0,0,0,0,0,0,1,
-1,0,0,0,0,0,0,0,0,1,
-1,0,0,0,0,0,0,0,0,1,
-1,1,1,1,1,1,1,1,1,1
+10,10,10,9,10,9,10,9,9,10,
+12,19,17,17,19,20,19,17,18,7,
+11,17,17,17,19,17,19,20,18,8,
+12,13,13,22,23,21,14,13,13,7,
+11,0,0,0,0,0,0,15,16,7,
+12,0,0,0,0,0,0,15,15,8,
+12,0,0,0,0,0,0,16,16,7,
+11,0,0,0,0,6,0,15,16,8,
+12,0,0,0,5,6,0,15,15,8,
+12,2,1,1,2,2,3,3,3,7
 </data>
  </layer>
- <objectgroup color="#00ff00" name="metadata">
-  <object id="1" type="player" x="64.25" y="96" width="16" height="48"/>
-  <object id="6" type="physicsobj" x="112.5" y="112.5" width="16" height="16">
-   <properties>
-    <property name="image" value="rock"/>
-    <property name="subtype" value="basic"/>
-   </properties>
-  </object>
+ <objectgroup name="metadata">
+  <object id="1" type="player" x="32" y="96" width="16" height="48"/>
  </objectgroup>
 </map>
