@@ -1,8 +1,8 @@
 import {Enemy} from "./enemy";
-import {mainGame} from "./main";
-import {DIRECTION} from "./entity";
-import {globals} from "./globals";
-import {collideBox} from "./utils/collision";
+import {mainGame} from "../../main";
+import {DIRECTION} from "../../entity";
+import {globals} from "../../globals";
+import {collideBox} from "../../utils/collision";
 
 const ATTACK_DAMAGE = 10;
 export class Anubis extends Enemy {
@@ -16,13 +16,14 @@ export class Anubis extends Enemy {
         super.configure(game);
         this.sprite.animations.add("idle", [0,1]);
         this.sprite.animations.add("basicAttack", [2,3,4]);
-        this.sprite.animations.play("idle", 10, true);
+        this.sprite.animations.play("idle", 1, true);
     }
 
     update() {
+        console.log(this.sprite.x, this.sprite.y)
         super.update();
 
-        let player = mainGame.getPlayer();
+        let player = globals.player;
         let stillBuf = 5;
 
         // are we close enough to punch the player with our plunger and/or eggbeater?

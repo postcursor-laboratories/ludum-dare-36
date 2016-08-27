@@ -1,6 +1,6 @@
-import {DIRECTION} from "./entity";
-import {Character} from "./character";
-import {globals} from "./globals";
+import {DIRECTION} from "../../entity";
+import {Character} from "../../character";
+import {globals} from "../../globals";
 
 export class Enemy extends Character {
 

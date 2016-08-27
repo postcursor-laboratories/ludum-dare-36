@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-down" width="10" height="10" tilewidth="16" tileheight="16" nextobjectid="7">
- <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="24" columns="4">
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="10" height="10" tilewidth="16" tileheight="16" nextobjectid="10">
+ <tileset firstgid="1" name="tiles" tilewidth="16" tileheight="16" tilecount="24">
   <image source="../../bin/sprites/tiles.png" width="64" height="96"/>
   <tile id="0">
    <properties>
@@ -83,6 +83,11 @@
    <properties>
     <property name="image" value="rock"/>
     <property name="subtype" value="basic"/>
+   </properties>
+  </object>
+  <object id="8" type="enemy" x="112" y="112" width="32" height="32">
+   <properties>
+    <property name="subtype" value="jackal"/>
    </properties>
   </object>
  </objectgroup>

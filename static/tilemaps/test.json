@@ -20,6 +20,10 @@
                  "height":48,
                  "id":1,
                  "name":"",
+                 "properties":
+                    {
+
+                    },
                  "rotation":0,
                  "type":"player",
                  "visible":true,
@@ -36,17 +40,27 @@
                      "image":"rock",
                      "subtype":"basic"
                     },
-                 "propertytypes":
-                    {
-                     "image":"string",
-                     "subtype":"string"
-                    },
                  "rotation":0,
                  "type":"physicsobj",
                  "visible":true,
                  "width":16,
                  "x":71.5,
                  "y":87.75
+                }, 
+                {
+                 "height":32,
+                 "id":8,
+                 "name":"",
+                 "properties":
+                    {
+                     "subtype":"jackal"
+                    },
+                 "rotation":0,
+                 "type":"enemy",
+                 "visible":true,
+                 "width":32,
+                 "x":112,
+                 "y":112
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -55,19 +69,26 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":7,
+ "nextobjectid":10,
  "orientation":"orthogonal",
+ "properties":
+    {
+
+    },
  "renderorder":"left-down",
  "tileheight":16,
  "tilesets":[
         {
-         "columns":4,
          "firstgid":1,
          "image":"..\/..\/bin\/sprites\/tiles.png",
          "imageheight":96,
          "imagewidth":64,
          "margin":0,
          "name":"tiles",
+         "properties":
+            {
+
+            },
          "spacing":0,
          "tilecount":24,
          "tileheight":16,
@@ -120,57 +141,6 @@
              "9":
                 {
                  "collide":"true"
-                }
-            },
-         "tilepropertytypes":
-            {
-             "0":
-                {
-                 "collide":"string"
-                },
-             "1":
-                {
-                 "collide":"string"
-                },
-             "10":
-                {
-                 "collide":"string"
-                },
-             "11":
-                {
-                 "collide":"string"
-                },
-             "2":
-                {
-                 "collide":"string"
-                },
-             "3":
-                {
-                 "collide":"string"
-                },
-             "4":
-                {
-                 "collide":"string"
-                },
-             "5":
-                {
-                 "collide":"string"
-                },
-             "6":
-                {
-                 "collide":"string"
-                },
-             "7":
-                {
-                 "collide":"string"
-                },
-             "8":
-                {
-                 "collide":"string"
-                },
-             "9":
-                {
-                 "collide":"string"
                 }
             },
          "tilewidth":16
