@@ -8,3 +8,6 @@ node_modules/
 
 # python install artifacts
 __pycache__/
+
+#atom tag files:
+.tags
