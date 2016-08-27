@@ -1,5 +1,5 @@
 {
-    "sprites": {
+    "tiles": {
         "spriteList": [
             {
                 "name": "sand0",
@@ -107,7 +107,7 @@
             {
                 "name": "backgroundroughtorch0-0",
                 "type": "normal"
-            },
+            }
         ]
     }
 }
