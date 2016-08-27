@@ -14,8 +14,8 @@ export class Anubis extends Enemy {
 
     configure(game) {
         super.configure(game);
-        this.sprite.animations.add("idle", [0, 1, 2, 3, 4, 5, 6, 7]);
-        this.sprite.animations.add("basicAttack", [9, 10, 11, 12, 13, 14, 15, 16]);
+        this.sprite.animations.add("idle", [0,1]);
+        this.sprite.animations.add("basicAttack", [2,3,4]);
         this.sprite.animations.play("idle", 10, true);
     }
 
