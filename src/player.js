@@ -1,8 +1,10 @@
 import {DIRECTION} from "./entity";
 import {Character} from "./character";
 import Phaser from "phaser";
+import {GravityGun, getGrabbableAtPoint} from "./gravity-gun";
 
 const PLAYER_HEALTH = 100;
+const GRAVITY_GUN_DISTANCE = 100;
 
 export class Player extends Character {
 
@@ -14,6 +16,15 @@ export class Player extends Character {
         this.recentlyCollided = false;
         this.animationPriority = ["kneel"].concat(this.animationPriority);
         this.kneeling = false;
+        this.gravityGun = null;
+        this.hasGravityGun = true;
+        this.setupGravityGun();
+        this.mouseState = {downLastTick: false};
+        this.activePointer = null;
+    }
+
+    setupGravityGun() {
+        this.gravityGun = new GravityGun(this, GRAVITY_GUN_DISTANCE);
     }
 
     configure(game) {
@@ -25,6 +36,8 @@ export class Player extends Character {
 
         this.autoControlHealthBar = false;
         this.disable(game);
+
+        this.activePointer = game.input.activePointer;
     }
 
     enable(game) {
@@ -137,6 +150,32 @@ export class Player extends Character {
             this.attemptAnim("jump", 5, false);
             this.jumpAnimationCounter--;
         }
+
+        if (this.hasGravityGun && this.gravityGun.isGrabbing) {
+            this.gravityGun.moveGrabbedTo(this.activePointer.x, this.activePointer.y);
+        }
+
+        this.handleMouse();
+    }
+
+    handleMouse() {
+        if (this.mouseState.downLastTick && !this.activePointer.isDown) {
+            if (this.hasGravityGun) {
+                if (!this.gravityGun.isGrabbing) {
+                    console.log((new Phaser.Point(this.activePointer.x, this.activePointer.y)).distance(this.sprite.position));
+                    if ((new Phaser.Point(this.activePointer.x, this.activePointer.y)).distance(this.sprite.position) <= GRAVITY_GUN_DISTANCE) {
+                        var obj = getGrabbableAtPoint(this.activePointer.x, this.activePointer.y);
+                        if (obj != undefined) {
+                            this.gravityGun.grab(obj);
+                        }
+                    }
+                } else {
+                    this.gravityGun.shoot();
+                }
+            }
+        }
+
+        this.mouseState.downLastTick = this.activePointer.isDown;
     }
 
     keepKneeling() {

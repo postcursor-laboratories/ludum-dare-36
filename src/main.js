@@ -5,7 +5,7 @@ import {Game} from "./game";
 import Phaser from "phaser";
 import {globals} from "./globals";
 import {HUD} from "./hud";
-import {Level} from "./levels/level";
+import {TestLevel} from "./levels/test-level";
 
 class MainGame extends Game {
 
@@ -14,11 +14,12 @@ class MainGame extends Game {
         this.currentLevel = null;
         this.player = null;
         this.triggered = false;
+        globals.phaserGame = this.phaserGame;
     }
 
     preGameInit() {
         this.levels = [
-            new Level("test", "test")
+            new TestLevel("test", "test")
         ];
     }
 
@@ -29,7 +30,8 @@ class MainGame extends Game {
 
     getPreLoadConfigurables() {
         return [
-            GameConfigurable.of(game => game.load.spritesheet("player", "sprites/player.png", 32, 32))
+            GameConfigurable.of(game => game.load.spritesheet("player", "sprites/player.png", 32, 32)),
+            GameConfigurable.of(game => game.load.spritesheet("rock", "sprites/physicsobj/rock.png", 32, 32))
         ].concat(this.levels.map(l => GameConfigurable.of(game => l.preloadConfigure(game))));
     }
 
@@ -60,6 +62,7 @@ class MainGame extends Game {
             this.currentLevel.exitLevel(this.phaserGame);
         }
         this.currentLevel = level;
+        globals.currentLevel = level;
         this.currentLevel.enterLevel(this.phaserGame);
     }
 

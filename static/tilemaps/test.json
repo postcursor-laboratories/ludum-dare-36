@@ -12,8 +12,9 @@
          "y":0
         }, 
         {
+         "color":"#00ff00",
          "draworder":"topdown",
-         "height":10,
+         "height":0,
          "name":"metadata",
          "objects":[
                 {
@@ -24,31 +25,52 @@
                  "type":"player",
                  "visible":true,
                  "width":16,
-                 "x":32,
+                 "x":64.25,
                  "y":96
+                }, 
+                {
+                 "height":16,
+                 "id":6,
+                 "name":"",
+                 "properties":
+                    {
+                     "image":"rock",
+                     "subtype":"basic"
+                    },
+                 "propertytypes":
+                    {
+                     "image":"string",
+                     "subtype":"string"
+                    },
+                 "rotation":0,
+                 "type":"physicsobj",
+                 "visible":true,
+                 "width":16,
+                 "x":112.5,
+                 "y":112.5
                 }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":10,
+         "width":0,
          "x":0,
          "y":0
         }],
- "nextobjectid":4,
+ "nextobjectid":7,
  "orientation":"orthogonal",
  "renderorder":"left-down",
  "tileheight":16,
  "tilesets":[
         {
-         "columns":1,
+         "columns":4,
          "firstgid":1,
          "image":"..\/..\/bin\/sprites\/tiles.png",
-         "imageheight":16,
-         "imagewidth":16,
+         "imageheight":96,
+         "imagewidth":64,
          "margin":0,
          "name":"tiles",
          "spacing":0,
-         "tilecount":1,
+         "tilecount":24,
          "tileheight":16,
          "tileproperties":
             {
