@@ -2,6 +2,7 @@
 
 from collections import UserDict
 from pathlib import Path
+import requests
 import sys
 import os
 import json
@@ -105,6 +106,16 @@ def get_sheet_dir(sheet, create=True):
         p.mkdir(exist_ok=True)
     return p
 
+def url_or_file_content(path):
+    if path.startswith('http://') or path.startswith('https://'):
+        res = requests.get(path)
+        res.raise_for_status()
+        return res.content
+    filepath = Path(filepath).absolute()
+    if not filepath.exists():
+        raise ValueError("File doesn't exist: " + str(filepath))
+    return filepath.read_bytes()
+
 @command(
     name='add',
     desc='Add a sprite named <name> at <filepath> to <sheet>',
@@ -119,11 +130,7 @@ def add_path(sheet, name, filepath):
             print("{name} is already contained in the registry.".format(**t))
             sys.exit(2)
 
-    filepath = Path(filepath).absolute()
-    if not filepath.exists():
-        raise ValueError("File doesn't exist: " + str(filepath))
-
-    (get_sheet_dir(sheet)/(name + '.png')).write_bytes(filepath.read_bytes())
+    (get_sheet_dir(sheet)/(name + '.png')).write_bytes(url_or_file_content(filepath))
     sprites.append({
         'name': name,
         'type': Type.NORMAL
@@ -148,11 +155,7 @@ def update_path(sheet, name, filepath):
     if has == -1:
         raise ValueError(name + " does not exist in '" + sheet + "'")
 
-    filepath = Path(filepath).absolute()
-    if not filepath.exists():
-        raise ValueError("File doesn't exist: " + str(filepath))
-
-    (get_sheet_dir(sheet)/(name + '.png')).write_bytes(filepath.read_bytes())
+    (get_sheet_dir(sheet)/(name + '.png')).write_bytes(url_or_file_content(filepath))
     print("{} is now updated (ID {})".format(name, has))
 
 @command(
