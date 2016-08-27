@@ -3,7 +3,6 @@ import {Resource, setBackgroundImage} from "../game-helpers";
 import {TileMap} from "../tilemap";
 import {Player} from "../player";
 import {ExitArea} from "../exit-area";
-import {GoldenItem} from "../golden-item";
 
 function newCall(Cls, args) {
     return new (Function.prototype.bind.apply(Cls, [null].concat(args)));
@@ -53,6 +52,8 @@ export class Level {
                 const type = obj.type;
                 if (this.objectHooks[type]) {
                     this.objectHooks[type].call(this, game, obj);
+                } else {
+                    console.warn("Warning: no object hook found for", type);
                 }
             }
         });
@@ -86,10 +87,10 @@ export class Level {
     }
 
     createInteractable(game, x, y, width, height, image) {
-        const item = new GoldenItem(image, x, y, width, height);
-        item.configure(game);
-        item.sprite.body.allowGravity = false;
-        this.interactables.push(item);
+        // const item = new GoldenItem(image, x, y, width, height);
+        // item.configure(game);
+        // item.sprite.body.allowGravity = false;
+        // this.interactables.push(item);
     }
 
     tickLevel(game) {

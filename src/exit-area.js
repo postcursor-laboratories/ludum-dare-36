@@ -21,7 +21,7 @@ export class ExitArea extends ExtendedSprite {
     update() {
         const player = this.gameRef.promethium.player;
         if (player) {
-            this.gameRef.physics.arcade.collide(this.sprite, player.sprite, () => {
+            this.gameRef.physics.p2.collide(this.sprite, player.sprite, () => {
                 // no collision processing
             }, () => {
                 this.gameRef.promethium.nextLevel();

@@ -23,14 +23,6 @@ export class Player extends Character {
         this.setupKeys();
         this.loadAnimation();
 
-        this.sprite.scale = new Phaser.Point(3, 3);
-        this.sprite.body.setSize(8 * this.sprite.scale.x, 16 * this.sprite.scale.y);
-        this.sprite.body.offset.x = 16;
-        this.sprite.body.syncBounds = false;
-        // forcibly disable bounds updates
-        this.sprite.body.updateBounds = () => {
-        };
-
         this.autoControlHealthBar = false;
         this.disable(game);
     }
@@ -92,7 +84,7 @@ export class Player extends Character {
     }
 
     loadAnimation() {
-        this.setTexture("midas", 0);
+        this.setTexture("player", 0);
         this.addAnimations(4, [
             4, 4, 2, 1
         ]);
@@ -118,16 +110,9 @@ export class Player extends Character {
 
     update() {
         this.healthBar.update(this);
-        this.checkCollision();
 
-        if ((this.sprite.body.touching.down || this.sprite.body.touching.up || this.sprite.body.onFloor()) && this.sprite.animations.currentAnim.name == "jump") {
+        if ((this.collide.bottom || this.collide.top) && this.sprite.animations.currentAnim.name == "jump") {
             this.sprite.animations.play("stationary", 4, true);
-        }
-
-        if ((this.sprite.body.touching.down || this.sprite.body.onFloor()) && !(this.controls.left || this.controls.right)) {
-            this.sprite.body.velocity.x *= 0.8;
-        } else {
-            this.sprite.body.velocity.x *= 0.98;
         }
 
         if (this.controls.left) {
@@ -138,15 +123,14 @@ export class Player extends Character {
             this.attemptAnim("stationary", 4, true);
         }
 
-        if (this.controls.down && this.sprite.body.onFloor()) {
+        if (this.controls.down && this.collide.bottom) {
             this.keepKneeling();
         } else if (this.kneeling) {
             this.stopKneeling();
         }
 
-        if (this.controls.up && (this.recentlyCollided || this.sprite.body.onFloor())) {
+        if (this.controls.up && this.collide.bottom) {
             this.jump();
-            this.recentlyCollided = false;
         }
 
         if (this.jumpAnimationCounter > 0) {

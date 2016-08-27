@@ -1,10 +1,11 @@
 // Entry point: initialize babel-polyfill
 import "babel-polyfill";
-import {GameConfigurable} from "./game-helpers";
+import {GameConfigurable, Resource} from "./game-helpers";
 import {Game} from "./game";
 import Phaser from "phaser";
 import {globals} from "./globals";
 import {HUD} from "./hud";
+import {Level} from "./levels/level";
 
 class MainGame extends Game {
 
@@ -16,15 +17,20 @@ class MainGame extends Game {
     }
 
     preGameInit() {
-        this.levels = [];
+        this.levels = [
+            new Level("test", "test")
+        ];
     }
 
     getImages() {
-        return [];
+        return [
+        ];
     }
 
     getPreLoadConfigurables() {
-        return [].concat(this.levels.map(l => GameConfigurable.of(game => l.preloadConfigure(game))));
+        return [
+            GameConfigurable.of(game => game.load.spritesheet("player", "sprites/player.png", 32, 32))
+        ].concat(this.levels.map(l => GameConfigurable.of(game => l.preloadConfigure(game))));
     }
 
     getConfigurables() {
@@ -35,12 +41,12 @@ class MainGame extends Game {
     }
 
     configure(game) {
-        game.physics.startSystem(Phaser.Physics.ARCADE);
+        game.physics.startSystem(Phaser.Physics.P2JS);
         globals.platformGroup = game.add.group();
         globals.enemyGroup = game.add.group();
         globals.player = game.add.group();
         globals.bulletsGroup = game.add.group();
-        game.physics.arcade.gravity.y = 300;
+        game.physics.p2.gravity.y = 300;
         game.stage.smoothed = false;
         game.stage.backgroundColor = 0xFFFFFF;
 

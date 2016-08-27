@@ -22,11 +22,12 @@ function dumpTiles(map, layer) {
 
 /**
  *
+ * @param game {Phaser.Game} GAEM
  * @param map {Phaser.Tilemap} Map data
  * @param layers {Array.<Phaser.TilemapLayer>} Layer data
  * @param tileSets {Array.<string>} Name of tile sets
  */
-function applyCollision(map, layers, tileSets) {
+function applyCollision(game, map, layers, tileSets) {
     map.tilesets.forEach(tset => {
         if (tileSets.indexOf(tset.name) >= 0) {
             for (let i = 0; i < tset.total; i++) {
@@ -38,6 +39,7 @@ function applyCollision(map, layers, tileSets) {
             }
         }
     });
+    layers.forEach(layer => game.physics.p2.convertTilemap(map, layer));
 }
 
 export class TileMap extends GameConfigurable {
@@ -108,11 +110,12 @@ export class TileMap extends GameConfigurable {
         this.largestLayer = largestLayer;
         this.collisionLayers = collisionLayers;
         this.phaserMap = map;
-        applyCollision(map, collisionLayers, this.checkCollideTileSets);
+        applyCollision(game, map, collisionLayers, this.checkCollideTileSets);
         this.largestLayer.resizeWorld();
         if (globals.resizeBackground) {
             globals.resizeBackground();
         }
+        game.physics.p2.setBoundsToWorld(true, true, true, true, false);
         globals.collisionLayers = this.collisionLayers;
     }
 

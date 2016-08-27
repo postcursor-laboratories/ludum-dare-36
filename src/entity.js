@@ -25,10 +25,8 @@ export class Entity extends ExtendedSprite {
         super.configure(game);
         this.sprite.anchor.setTo(0.5, 1);
         this.sprite.scale = new Phaser.Point(2, 2);
-        game.physics.enable(this.sprite);
-        this.sprite.body.bounce.y = 0.1;
+        game.physics.p2.enable(this.sprite, true);
         this.sprite.body.collideWorldBounds = true;
-        this.sprite.body.syncBounds = true;
         this.healthBar.configure(game);
     }
 

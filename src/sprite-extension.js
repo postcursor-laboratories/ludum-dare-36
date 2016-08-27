@@ -97,14 +97,6 @@ export class ExtendedSprite extends GameConfigurable {
         //this.gameRef.debug.body(this.sprite);
     }
 
-    checkCollision() {
-        let any = false;
-        if (globals.collisionLayers) {
-            globals.collisionLayers.forEach(layer => any |= this.gameRef.physics.arcade.collide(this.sprite, layer, this.collideCallback));
-        }
-        return any;
-    }
-
     setTexture(texture, frame = undefined) {
         let args = [texture];
         if (frame !== undefined) {
