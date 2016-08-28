@@ -19,7 +19,7 @@ export class TestLevel extends Level {
 
     initializePhysicsObj(game, obj) {
         if (obj.properties.subtype == "basic") {
-            var physobj = new BasicPhysicsObject(obj.properties.image, obj.x, obj.y, 100);
+            var physobj = new BasicPhysicsObject(obj.properties.image, obj.x*2, obj.y*2, 100);
             physobj.configure(game);
             this.interactables.push(physobj);
         }

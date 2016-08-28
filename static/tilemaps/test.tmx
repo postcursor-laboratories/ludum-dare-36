@@ -79,13 +79,13 @@
  </layer>
  <objectgroup name="metadata">
   <object id="1" type="player" x="32" y="96" width="16" height="48"/>
-  <object id="4" type="physicsobj" x="71.5" y="87.75" width="16" height="16">
+  <object id="4" type="physicsobj" x="91.9375" y="103.953" width="8" height="8">
    <properties>
     <property name="image" value="rock"/>
     <property name="subtype" value="basic"/>
    </properties>
   </object>
-  <object id="8" type="enemy" x="112" y="112" width="32" height="32">
+  <object id="8" type="enemy" x="128" y="128">
    <properties>
     <property name="subtype" value="jackal"/>
    </properties>

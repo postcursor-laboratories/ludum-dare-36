@@ -9,18 +9,23 @@ export class Anubis extends Enemy {
 
     constructor(x, y) {
         super("jackal", x, y, 100);
+
         this.attacking = false;
     }
 
     configure(game) {
         super.configure(game);
+        console.log(this.sprite.anchor);
+        this.sprite.anchor.x=.75;
+        this.sprite.body.setRectangle(32,64);
+        console.log(this.sprite.x, this.sprite.offsetX, this.sprite.y);
         this.sprite.animations.add("idle", [0,1]);
         this.sprite.animations.add("basicAttack", [2,3,4]);
         this.sprite.animations.play("idle", 1, true);
+        this.setFacing(DIRECTION.RIGHT)
     }
 
     update() {
-        console.log(this.sprite.x, this.sprite.y)
         super.update();
 
         let player = globals.player;
